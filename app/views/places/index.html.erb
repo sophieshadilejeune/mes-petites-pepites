@@ -4,7 +4,11 @@
   </div>
   <div class="cards">
     <% @places.each do |place|  %>
-    <%= link_to "#{place.name}", place_path(place), class: "card" %>
+    <div class="card">
+      <%= link_to "#{place.name}" , place_path(place) %>
+      <%=  %>
+      <%= link_to '+', place_path(place), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-remove-link'  %>
+         </div>
     <% end %>
   </div>
 </div>
