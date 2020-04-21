@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
   end
 
   def update
-    @place = Place.update(params_flat)
+    @place.update(params_place)
     redirect_to place_path(@place)
   end
 
