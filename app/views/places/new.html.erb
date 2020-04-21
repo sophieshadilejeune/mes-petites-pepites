@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+<%= simple_form_for(@place) do |f| %>
+<%= f.input :name %>
+<%= f.input :address %>
+<%= f.input :description %>
+<%= f.submit "Add this Pépite", class: "btn btn-ghost btn-area-fill" %>
+<% end %>
+
+    </div>
+  </div>
+</div>

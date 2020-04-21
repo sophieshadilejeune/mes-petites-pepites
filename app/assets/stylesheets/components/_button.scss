@@ -1,0 +1,24 @@
+.btn-ghost {
+  color: $orange;
+  border: 1px solid $orange;
+  padding: 8px 24px;
+  border-radius: 14px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  margin-right: 20px;
+  &:hover{
+  color: $strawberry;
+  border: 1px solid $strawberry;
+  }
+}
+
+.btn-area-fill {
+  background-color: $orange;
+  color: white;
+  &:hover{
+    background-color: $strawberry;
+    color: white;
+  }
+}
+
