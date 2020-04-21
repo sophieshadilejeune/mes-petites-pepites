@@ -1,0 +1,11 @@
+<div class="container">
+  <div style="padding-top: 16px;">
+    <%= link_to "Add a new Pépite", new_place_path, class: "btn btn-ghost btn-area-fill"  %>
+  </div>
+  <div class="cards">
+    <% @places.each do |place|  %>
+    <%= link_to "#{place.name}", place_path(place), class: "card" %>
+    <% end %>
+  </div>
+</div>
+
