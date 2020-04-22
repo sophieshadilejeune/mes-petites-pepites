@@ -1,8 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
-  def index
-    @categories = Category.all
-  end
 
   def new
     @category = Category.new
@@ -10,6 +7,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(params_category)
+    @category.user_id = current_user.id
     if @category.save
       redirect_to dashboard_path
     else
@@ -26,12 +24,12 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(params_category)
-    redirect_to category_path(@category)
+    redirect_to dashboard_path
   end
 
   def destroy
     @category.destroy
-    redirect_to categories_path
+    redirect_to dashboard_path
   end
 
   private

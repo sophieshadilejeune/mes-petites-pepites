@@ -1,16 +1,5 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: %i[show edit update destroy]
-  def index
-    @places = Place.all
-    @places_geo = Place.where.not(latitude: nil, longitude: nil)
-    @markers = @places_geo.map do |place|
-      {
-        lat: place.latitude,
-        lng: place.longitude,
-        infowindow: render_to_string(partial: "infowindow", locals: { place: place })
-      }
-    end
-  end
 
   def show
   end
@@ -21,8 +10,9 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(params_place)
+    @place.user_id = current_user.id
     if @place.save
-      redirect_to place_path(@place)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -38,7 +28,7 @@ class PlacesController < ApplicationController
 
   def destroy
     @place.destroy
-    redirect_to places_path
+    redirect_to dashboard_path
   end
 
   private
