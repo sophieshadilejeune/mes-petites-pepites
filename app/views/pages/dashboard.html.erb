@@ -16,6 +16,9 @@
     <%= link_to "Add a new Pépite", places_new_path, class: "btn btn-ghost btn-area-fill"  %>
   </div>
   <div class="cards">
+    <div class="card card-new" id="place_card">
+      <%= link_to "Add a new Pépite" ,places_new_path %>
+    </div>
     <% @places.each do |place|  %>
     <div class="card" id="place_card">
       <%= link_to "#{place.name}" , place_path(place) %>

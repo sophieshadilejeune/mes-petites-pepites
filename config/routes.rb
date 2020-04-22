@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get 'places', to: 'places#index'
   get 'places/new', to: 'places#new'
   post 'places', to: 'places#create'
   get 'places/:id', to: 'places#show', as: :place
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
   put 'places/:id', to: 'places#update'
   delete 'places/:id', to: 'places#destroy', as: :delete_place
 
-  resources :categories do
+  resources :categories, except: [:index] do
   end
 
   # resources :places

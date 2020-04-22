@@ -1,3 +1,4 @@
+require 'pry'
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
@@ -5,9 +6,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @categories = Category.all
-    @places = Place.all
-    @places_geo = Place.where.not(latitude: nil, longitude: nil)
+    # @categories = Category.where(user_id: current_user.id)
+    @categories = Category.where(user_id: nil).or(Category.where(user_id: current_user.id))
+    @places = Place.where(user_id: nil).or(Place.where(user_id: current_user.id))
+    @places_geo = @places.where.not(latitude: nil, longitude: nil)
     @markers = @places_geo.map do |place|
       {
         lat: place.latitude,
