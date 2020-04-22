@@ -5,7 +5,9 @@
 <%= f.input :name %>
 <%= f.input :address %>
 <%= f.input :description %>
+<%= f.association :category %>
 <%= f.submit "Add this Pépite", class: "btn btn-ghost btn-area-fill" %>
+<%= hidden_field_tag :category, @category_id %>
 <% end %>
 
     </div>

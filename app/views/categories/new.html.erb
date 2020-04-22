@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+<%= simple_form_for(@category) do |f| %>
+<%= f.input :name %>
+<%= f.submit "Add this category", class: "btn btn-ghost btn-area-fill" %>
+<% end %>
+
+    </div>
+  </div>
+</div>

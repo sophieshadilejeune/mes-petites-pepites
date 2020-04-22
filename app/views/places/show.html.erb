@@ -1,7 +1,16 @@
-<div class="container">
+<div class="container" style="margin-top: 10px;">
   <div class="row">
+    <div class="col-1">
+      <%= link_to "<<", places_path, class: "btn btn-ghost btn-area-fill"  %>
+      </div>
   <div class="col-8 offset-2">
   <div class="place-card">
+    <div class="place-card-options">
+    <%= link_to '+', place_path(@place), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-options option-remove-link'  %>
+      <%= link_to edit_place_path(@place), class: "card-options" do %>
+      <i class="far fa-edit fa-xs"></i>
+      <% end %>
+      </div>
     <div class="place-card-title">
       <%= @place.name  %>
     </div>

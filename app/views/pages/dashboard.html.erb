@@ -1,5 +1,18 @@
+<div class="categories" style="">
+  <% @categories.each do |category| %>
+  <%= link_to "#{category.name}", category_path(category), class: "btn btn-ghost btn-area-fill" %>
+  <% end %>
+
+</div>
+<div class="margin-negative" style="margin-top: -30px; text-align: right;
+    margin-right: 20px; padding-top: -10px;">
+  <%= link_to new_category_path do  %>
+  <i class="fas fa-plus-circle fa-lg"></i>
+  <% end %>
+
+</div>
 <div class="container">
-  <div style="padding-top: 16px;">
+<div style="padding-top: 16px;">
     <%= link_to "Add a new Pépite", places_new_path, class: "btn btn-ghost btn-area-fill"  %>
   </div>
   <div class="cards">
@@ -14,5 +27,4 @@
     <% end %>
   </div>
 </div>
-
 
