@@ -2,6 +2,14 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %i[show edit update destroy]
   def index
     @places = Place.all
+    @places_geo = Place.where.not(latitude: nil, longitude: nil)
+    @markers = @places_geo.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infowindow: render_to_string(partial: "infowindow", locals: { place: place })
+      }
+    end
   end
 
   def show
