@@ -2,6 +2,17 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %i[show edit update destroy]
 
   def show
+  @review = Review.new
+  @place_geo = []
+  @place_geo << @place
+    @markers = @place_geo.map do |place|
+      {
+        category: place.category.name,
+        lat: place.latitude,
+        lng: place.longitude,
+        infowindow: render_to_string(partial: "infowindow", locals: { place: place })
+      }
+    end
   end
 
   def new

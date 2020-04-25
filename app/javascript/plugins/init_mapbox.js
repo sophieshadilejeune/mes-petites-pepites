@@ -18,6 +18,7 @@ markers.forEach((marker) => {
 });
 };
 
+
   const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
@@ -38,7 +39,27 @@ mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
 const markers = JSON.parse(mapElement.dataset.markers);
 
+const categoryButtonAll = document.querySelector("#category-button-all")
 
+const categoryButton = document.querySelectorAll("#category-button");
+
+const markersPerCategory = [];
+
+
+categoryButton.forEach((button) => {
+  button.addEventListener("click", (event) => {
+const markersPerCategory = [];
+  const categoryName = event.currentTarget.innerText;
+
+  markers.forEach((marker) => {
+    if (marker.category === categoryName) {
+      markersPerCategory.push(marker);
+    };
+  });
+fitMapToMarkers(map, markersPerCategory);
+
+});
+});
 fitMapToMarkers(map, markers);
 addMarkers(map, markers);
 //add lines below if want to add the search field on the map

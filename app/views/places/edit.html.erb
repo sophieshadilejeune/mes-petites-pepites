@@ -5,6 +5,7 @@
 <%= f.input :name %>
 <%= f.input :address %>
 <%= f.input :description %>
+<%= f.association :category, collection: Category.where(user_id: current_user.id).or(Category.where(user_id: nil)) %>
 <%= f.submit "Save changes to this Pépite", class: "btn btn-ghost btn-area-fill" %>
 <% end %>
 

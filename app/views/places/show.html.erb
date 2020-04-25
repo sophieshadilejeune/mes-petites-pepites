@@ -1,26 +1,59 @@
-<div class="container" style="margin-top: 10px;">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-1">
-      <%= link_to "<<", places_path, class: "btn btn-ghost btn-area-fill"  %>
-      </div>
-  <div class="col-8 offset-2">
-  <div class="place-card">
-    <div class="place-card-options">
-    <%= link_to '+', place_path(@place), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-options option-remove-link'  %>
-      <%= link_to edit_place_path(@place), class: "card-options" do %>
-      <i class="far fa-edit fa-xs"></i>
-      <% end %>
-      </div>
-    <div class="place-card-title">
-      <%= @place.name  %>
-    </div>
-    <div class="place-card-address">
+  <div class="show-place-card">
+    <div class="col-8 offset-2">
+<div class="show-place-card-info">
+  <h1><%= @place.name  %></h1>
+<div class="show-place-card-details">
+  <p>"<%= @place.description %>"</p>
     <i class="fas fa-map-marker-alt"></i>
-      <%= @place.address %>
-    </div>
-    <div class="place-card-description">
-      <i>"<%= @place.description %>"</i>
-    </div>
+    <a href="#map"><%= @place.address %></a>
+
+
+</div>
+  </div>
+</div>
+
+</div>
+<div class="col-10 offset-1">
+  <div class="show-place-card-reviews">
+
+<div class="show-place-card-review">
+
+<p>Add a review</p>
+<%= simple_form_for [ @place, @review ] do |f| %>
+<%= f.input :content %>
+<%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+<%= f.submit class: "btn-ghost btn-area-fill" %>
+<% end %>
+</div>
+
+
+
+<% @place.reviews.each do |review| %>
+
+
+<div class="show-place-card-review">
+    <p><i class="fas fa-quote-left" style="float: left"></i><span style="float: right"><%= review.rating %>/5</span>
+    <br>
+    <%= review.content %>
+    <br>
+    <i class="fas fa-quote-right" style="float: right;"></i></p>
+  </div>
+    <% end %>
 
   </div>
+
+</div>
+</div>
+<div class="row">
+  <div class="col-10 offset-1">
+    <div id="map"
+     style="width: 100%; height: 400px; margin-top: 10px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+     </div>
+     </div>
+</div>
 </div>

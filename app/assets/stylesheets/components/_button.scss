@@ -19,8 +19,16 @@
   &:hover{
     background-color: $strawberry;
     color: white;
+    border: 1px solid $strawberry;
+
   }
 }
+    .category-active {
+    background-color: $strawberry;
+    color: white;
+    border: 1px solid $strawberry;
+  }
+
 
 .fas {
     color: $orange;
