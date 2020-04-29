@@ -1,6 +1,3 @@
-require 'pry'
-require 'open-uri'
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
@@ -10,12 +7,6 @@ class PagesController < ApplicationController
    else
      @users = User.all
    end
-  end
-
-  def try
-    Nokogiri::HTML.parse(open('http://localhost:3000/2/try'))
-    @categories = Category.where(user_id: user.id)
-    @places = Place.where(user_id: user.id)
   end
 
   def dashboard
