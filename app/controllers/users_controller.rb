@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!, except: [:show]
   def show
     @user = User.find(params[:id])
         if params[:term].present?
-     @users = User.search(params[:term])
+    @users = User.search(params[:term])
    else
      @users = User.all
    end
