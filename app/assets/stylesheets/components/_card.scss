@@ -1,9 +1,9 @@
-.cards {
-  padding-top: 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
+// .cards {
+//   padding-top: 16px;
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr 1fr;
+//   grid-gap: 16px;
+// }
 
 .categories {
   display: flex;
@@ -11,19 +11,25 @@
   justify-content: center;
   align-items: flex-start;
   background-color: #e2e2e2;
-  padding-top: 16px;
+  // padding-top: 16px;
   padding-bottom: 32px;
+  width: 100%;
   .btn {
     width: 180px;
     margin-top: 16px;
   }
 }
-
+#add-new-place-card {
+background-color: $light-strawberry;
+a{
+  color: $strawberry;
+}
+}
 .shuffle-card {
   position: relative;
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,49 +55,54 @@
   }
 }
 
-.card {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-color: $orange;
-  a {
-    color: $orange;
-  }
-  &:hover {
-    transform: scale(1.05);
-    border-color: $strawberry;
-    text-decoration: none;
-    transition: all .2s ease-in-out;
-    a {
-    color: $strawberry;
-    text-decoration: none;
-    }
-  }
-}
-.card-new {
-  background-color: $strawberry;
-  border-color: $strawberry;
-  a {
-    color: white;
-  }
-  &:hover {
-   color: white;
-   a {
-    color: white;
-   }
- }
-}
+// .card {
+//   position: relative;
+//   background-size: cover;
+//   background-position: center;
+//   height: 180px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   font-size: 24px;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   border-radius: 5px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   border-color: $orange;
+//   a {
+//     color: $orange;
+//   }
+//   &:hover {
+//     transform: scale(1.05);
+//     border-color: $strawberry;
+//     text-decoration: none;
+//     transition: all .2s ease-in-out;
+//     a {
+//     color: $strawberry;
+//     text-decoration: none;
+//     }
+//   }
+// }
+// .card-new {
+//   background-color: $strawberry;
+//   border-color: $strawberry;
+//   a {
+//     color: white;
+//   }
+//   &:hover {
+//    color: white;
+//    a {
+//     color: white;
+//    }
+//  }
+// }
+// #places-container {
+//   background-color: $strawberry;
+// }
 
+
+// Show place of each Pépite
 .show-place-card {
   background-color: $strawberry;
   width: 100%;
@@ -103,7 +114,7 @@
   margin-top: 80px;
   margin-bottom: 80px;
   h1 {
-    font: $product-title;
+    font: $title;
     font-size: 4rem;
   }
   a {
@@ -114,6 +125,7 @@
     }
   }
 }
+
 
 .show-place-card-reviews {
   margin-top: -40px;
@@ -127,16 +139,6 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 15px;
 }
-// .place-card {
-//   background: #F8F9FA;
-//   padding: 10px;
-//   margin-bottom: 20px;
-//   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-//   border-radius: 3px;
-//   font-size: 2.5rem;
-//   text-align: center;
-//   position: relative;
-// }
 
 // .place-card-address{
 // font-size: 15px;
@@ -151,6 +153,39 @@
 
 
 // }
+
+.category-card {
+  background-color: $gray;
+  color: $gray-dark;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.category-card-options a {
+  color: $orange;
+  justify-content: center;
+  // height: 20px;
+  // width: 30px;
+  opacity: 0.8;
+  &:hover {
+    color: $strawberry;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.category-options{
+  padding-left: 15px;
+  font-size: 1.3rem;
+  &:hover{
+color: $strawberry;
+text-decoration: none;
+  }
+}
+
 .card-options {
   color: $orange;
   display: flex;

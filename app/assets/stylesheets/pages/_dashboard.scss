@@ -4,3 +4,23 @@
       color: $strawberry
     }
   }
+.manage-categories-link {
+  float: right;
+  margin: 10px 20px 0 0;
+  color: $orange;
+&:hover{
+  color: $strawberry;
+  text-decoration: none;
+}
+}
+
+.fa-plus-circle {
+float:left;
+margin: 10px 0 0 20px;
+}
+
+
+.categories-options {
+  background-color: blue;
+
+}

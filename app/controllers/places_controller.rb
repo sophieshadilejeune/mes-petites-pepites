@@ -3,6 +3,9 @@ class PlacesController < ApplicationController
 
   def show
   @review = Review.new
+  @reviews = Review.all
+  # @user = User.where(id: review.user_id)
+  # @nickname = @user[0].nickname
   @place_geo = []
   @place_geo << @place
     @markers = @place_geo.map do |place|

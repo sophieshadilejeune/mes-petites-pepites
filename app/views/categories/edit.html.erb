@@ -1,2 +1,11 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<div class="container-fluid form">
+  <div class="row">
+    <div class="col-6 offset-3">
+<%= simple_form_for(@category) do |f| %>
+<%= f.input :name %>
+<%= f.submit "Save changes to this Category", class: "btn btn-ghost btn-area-fill" %>
+<% end %>
+
+    </div>
+  </div>
+</div>

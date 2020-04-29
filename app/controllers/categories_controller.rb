@@ -29,7 +29,13 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to dashboard_path
+    redirect_to categories_manage_path
+  end
+
+  def manage
+    @categories = Category.where(user_id: current_user.id)
+    @category = Category.new
+
   end
 
   private

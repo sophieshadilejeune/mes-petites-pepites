@@ -1,12 +1,21 @@
 require 'pry'
+require 'open-uri'
+
 class PagesController < ApplicationController
-  attr_reader :seed
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    if params[:term].present?
+     @users = User.search(params[:term])
+   else
+     @users = User.all
+   end
   end
 
   def try
+    Nokogiri::HTML.parse(open('http://localhost:3000/2/try'))
+    @categories = Category.where(user_id: user.id)
+    @places = Place.where(user_id: user.id)
   end
 
   def dashboard

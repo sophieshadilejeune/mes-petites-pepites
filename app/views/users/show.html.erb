@@ -1,0 +1,50 @@
+<div class="visitor-banner">
+  You are visiting <%= @user.nickname %>'s PépitesBoard
+</div>
+<div class="categories" style="">
+  <div class="btn btn-ghost btn-area-fill" id="category-button-all">
+    See all the Pépites
+  </div>
+
+  <% @categories.each do |category| %>
+  <div class="btn btn-ghost btn-area-fill" id="category-button">
+    <%= category.name %>
+  </div>
+  <% end %>
+</div>
+
+<div id="places-container" class="fluid-container">
+<div class="container" style="margin-top: 10px">
+
+
+  <div id="grid" class="row my-shuffle-container" >
+
+<% @places.each do |place|  %>
+
+  <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item" data-groups='["<%= place.category.name  %>"]' style="top: 0px; left: 0px;">
+
+    <div class="shuffle-card" id="place_card">
+      <div class="shuffle-card-body" style="flex: 1 1 auto; padding: 1.25rem;">
+        <%= link_to "#{place.name}" , place_path(place) %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+  </div>
+
+</div>
+</div>
+<div class="container">
+    <div id="map"
+     style="width: 100%; height: 400px; margin-top: 25px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+     </div>
+     </div>
+
+
+
+

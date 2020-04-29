@@ -1,59 +1,61 @@
 <div class="container-fluid">
   <div class="row">
-  <div class="show-place-card">
-    <div class="col-8 offset-2">
-<div class="show-place-card-info">
-  <h1><%= @place.name  %></h1>
-<div class="show-place-card-details">
-  <p>"<%= @place.description %>"</p>
-    <i class="fas fa-map-marker-alt"></i>
-    <a href="#map"><%= @place.address %></a>
+    <div class="show-place-card">
+      <div class="col-8 offset-2">
+        <div class="show-place-card-info">
+          <h1><%= @place.name  %></h1>
+          <div class="show-place-card-details">
+            <p>"<%= @place.description %>"</p>
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="#map"><%= @place.address %></a>
 
 
-</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-10 col-md-5 col-xl-5 offset-1">
+      <div class="show-place-card-reviews">
+<% if @place.user_id != current_user.id %>
+        <div class="show-place-card-review">
 
-</div>
-<div class="col-10 offset-1">
-  <div class="show-place-card-reviews">
+          <p>Add a review</p>
+          <%= simple_form_for [ @place, @review ] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+          <%= f.submit class: "btn-ghost btn-area-fill" %>
+          <% end %>
+        </div>
 
-<div class="show-place-card-review">
-
-<p>Add a review</p>
-<%= simple_form_for [ @place, @review ] do |f| %>
-<%= f.input :content %>
-<%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-<%= f.submit class: "btn-ghost btn-area-fill" %>
 <% end %>
-</div>
+
+        <% @place.reviews.each do |review| %>
 
 
+        <div class="show-place-card-review">
+          <%= User.where(id: review.user_id)[0].nickname %>
+          <p><i class="fas fa-quote-left" style="float: left"></i><span style="float: right"><%= review.rating %>/5</span>
+            <br>
+            <%= review.content %>
+            <br>
+            <i class="fas fa-quote-right" style="float: right;"></i></p>
+          </div>
+          <% end %>
 
-<% @place.reviews.each do |review| %>
+        </div>
 
+      </div>
+<!-- <div class="row">
+-->  <div class="map col-10 col-md-6 col-xl-5 offset-1 offset-md-0">
+  <div id="map"
+  style="width: 100%; height: 400px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
-<div class="show-place-card-review">
-    <p><i class="fas fa-quote-left" style="float: left"></i><span style="float: right"><%= review.rating %>/5</span>
-    <br>
-    <%= review.content %>
-    <br>
-    <i class="fas fa-quote-right" style="float: right;"></i></p>
-  </div>
-    <% end %>
-
-  </div>
-
-</div>
-</div>
-<div class="row">
-  <div class="col-10 offset-1">
-    <div id="map"
-     style="width: 100%; height: 400px; margin-top: 10px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
-     </div>
-     </div>
 </div>
 </div>
+</div>
+</div>
+

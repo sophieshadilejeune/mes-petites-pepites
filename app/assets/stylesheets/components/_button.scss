@@ -1,3 +1,5 @@
+
+
 .btn-ghost {
   color: $orange;
   border: 1px solid $orange;
@@ -10,6 +12,7 @@
   &:hover{
   color: $strawberry;
   border: 1px solid $strawberry;
+  text-decoration: none
   }
 }
 

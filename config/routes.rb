@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
   get 'try', to: 'pages#try'
+  get 'categories/manage', to: 'categories#manage'
   # get 'categories', to: 'categories#index'
   # get 'categories/new'
   # get 'categories/:id', to: 'category#show'
   # get 'categories/edit'
   devise_for :users
+  resources :users, only: [:show]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # get 'places/new', to: 'places#new'
@@ -20,6 +23,5 @@ Rails.application.routes.draw do
   end
   resources :categories, except: [:index] do
   end
-
   # resources :places
 end
