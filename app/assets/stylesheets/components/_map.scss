@@ -6,6 +6,10 @@
   text-align: center;
   font-family: 'Open Sans', sans -serif;
   color: black;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-family: $body-font;
+  padding: 13px;
 }
 
 #map{
@@ -22,25 +26,29 @@
 
 }
 
+// // Extra-Small devices (320px and up)
+// @media (min-width: 320px) {
+// .container-map {
+//   margin-top: 30px;
+// }
+// }
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+// .container-map {
+//   margin-top: 30px;
+// }
+// }
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+// .container-map{
+//   margin-top: 30px;
+// }
+// }
 
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+// }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-.container-map {
-  margin-top: 30px;
-}
-}
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-.container-map{
-  margin-top: 60px;
-}
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { }
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { }
 

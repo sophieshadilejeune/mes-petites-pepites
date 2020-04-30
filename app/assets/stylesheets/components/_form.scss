@@ -3,11 +3,14 @@
   height: 100vh;
   color: $liver;
   background-color: $tangerine;
-  text-align: center;
+  text-align: left;
+  h2{
+    text-align: center;
+  }
   a {
-    color: $purple;
+    color: $strawberry;
     &:hover {
-      color: $purple;
+      color: $white;
       text-decoration: none;
     }
   }

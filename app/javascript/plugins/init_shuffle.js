@@ -9,7 +9,7 @@ const categoryButton = document.querySelectorAll("#category-button");
 
 const initShuffle = () => {
 
-if (categoryButton) {
+if (element) {
 
   const shuffleInstance = new Shuffle(element, {
   itemSelector: '.shuffle-item',

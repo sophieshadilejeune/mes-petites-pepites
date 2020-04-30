@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row" style="margin-top: 20px; justify-content: center">
+  <div class="row" style="margin-top: 20px;">
 
-        <div class="col-9 col-md-5 col-xl-3">
+        <div class="col-sm-8 col-md-5 col-xl-5 offset-md-1">
 
-        <div class="d-flex category-card ">
+        <div class="category-card ">
 
         <div>
         <%= simple_form_for(@category) do |f| %>
@@ -16,9 +16,11 @@
     </div>
 
 
-        <% @categories.each do |category| %>
 
-        <div class="col-9 col-md-5 col-xl-3">
+
+        <div class="col-sm-8 col-md-5 col-xl-5">
+
+          <% @categories.each do |category| %>
 
         <div class="d-flex category-card ">
 
@@ -33,7 +35,7 @@
         <i class="far fa-edit fa-xs"></i>
         <% end %>
 
-          <%= link_to category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class: 'category-options' do %>
+          <%= link_to category_path(category), method: :delete, data: { confirm: "Are you sure?", title: "Confirm Deletion"}, class: 'category-options' do %>
           <i class="far fa-trash-alt fa-xs"></i>
           <% end %>
 
@@ -43,9 +45,9 @@
         </div>
 
         </div>
-
-      </div>
         <% end %>
+      </div>
+
       </div>
     </div>
 

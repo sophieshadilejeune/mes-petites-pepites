@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params_category)
     @category.user_id = current_user.id
     if @category.save
-      redirect_to dashboard_path
+      redirect_to categories_manage_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(params_category)
-    redirect_to dashboard_path
+    redirect_to categories_manage_path
   end
 
   def destroy
