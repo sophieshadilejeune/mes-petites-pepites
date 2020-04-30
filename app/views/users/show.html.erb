@@ -2,12 +2,12 @@
   You are visiting <%= @user.nickname %>'s PépitesBoard
 </div>
 <div class="categories" style="">
-  <div class="btn btn-ghost btn-area-fill" id="category-button-all">
+  <div class="btn btn-ghost" id="category-button-all">
     See all the Pépites
   </div>
 
   <% @categories.each do |category| %>
-  <div class="btn btn-ghost btn-area-fill" id="category-button">
+  <div class="btn btn-ghost" id="category-button">
     <%= category.name %>
   </div>
   <% end %>

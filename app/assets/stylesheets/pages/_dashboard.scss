@@ -1,5 +1,31 @@
+body {
+  background-color: $snow;
+  // background: linear-gradient($snow, #FEE2CF)
+}
+.categories-options{
+  background-color: $liver;
+  padding-top: 16px;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  // background-image: linear-gradient(to bottom right, $gray, $liver);
+  background-color: $liver;
+  padding-bottom: 32px;
+  width: 100%;
+  // border-bottom: $tangerine 3px solid;
+  // box-shadow-bottom: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 6px -6px $liver;
+  .btn {
+    width: 180px;
+    margin-top: 16px;
+  }
+}
+
 .fas {
-    color: $orange;
+    color: $tangerine;
     &:hover {
       color: $strawberry
     }
@@ -7,7 +33,7 @@
 .manage-categories-link {
   float: right;
   margin: 10px 20px 0 0;
-  color: $orange;
+  color: $tangerine;
 &:hover{
   color: $strawberry;
   text-decoration: none;
@@ -19,8 +45,3 @@ float:left;
 margin: 10px 0 0 20px;
 }
 
-
-.categories-options {
-  background-color: blue;
-
-}

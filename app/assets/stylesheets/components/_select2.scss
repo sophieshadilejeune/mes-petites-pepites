@@ -147,13 +147,13 @@ background-color: #e2e2e2a6;
 
 /*New Changes*/
 .select2-container--default .select2-selection--single{
-    background: $orange;
+    background: $strawberry;
     border: 0px;
     border-radius: 14px;
 
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{
-    color: $strawberry;
+    color: red;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered{
     color: #fff;
@@ -172,14 +172,14 @@ background-color: #e2e2e2a6;
 }
 .select2-container--open .select2-dropdown--below,
 .select2-container--open .select2-dropdown--above{
-    background: $light-orange;
+    background: none;
     border-radius: 14px
 }
 /*Tags Style*/
 .select2-container--default .select2-selection--multiple .select2-selection__choice{
-    background-color: $orange;
+    background-color: $strawberry;
     color: #fff;
-    border: 1px solid $orange;
+    border: 1px solid $strawberry;
     border-radius: 0px;
     padding: 3px 5px;
 }

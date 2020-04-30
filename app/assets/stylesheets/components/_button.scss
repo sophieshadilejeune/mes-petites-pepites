@@ -1,8 +1,24 @@
-
+.btn-ghost-navbar {
+  color: $strawberry;
+  border-bottom: 2px solid $strawberry;
+  // background-color: $tangerine;
+  padding: 8px 24px;
+  border-radius: 14px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  margin-right: 20px;
+  &:hover{
+  color: $tangerine;
+  border-bottom: 2px solid $tangerine;
+  text-decoration: none;
+  // background-color: $purple;
+  }
+}
 
 .btn-ghost {
-  color: $orange;
-  border: 1px solid $orange;
+  color: $tangerine;
+  border: 1px solid $tangerine;
   padding: 8px 24px;
   border-radius: 14px;
   font-weight: lighter;
@@ -17,25 +33,28 @@
 }
 
 .btn-area-fill {
-  background-color: $orange;
+  background-color: $strawberry;
   color: white;
   &:hover{
-    background-color: $strawberry;
+    background-color: $tangerine;
     color: white;
-    border: 1px solid $strawberry;
+    border: 1px solid $tangerine;
 
   }
 }
-    .category-active {
-    background-color: $strawberry;
+.category-active {
+    background-color: $tangerine;
     color: white;
-    border: 1px solid $strawberry;
+    border: 1px solid $tangerine;
+    &:hover{
+      color: $snow
+    }
   }
 
 
 .fas {
-    color: $orange;
+    color: $purple;
     &:hover {
-      color: $strawberry
+      color: $purple
     }
   }

@@ -14,7 +14,7 @@ import { initHuntersList } from './home_hunter_display';
 import { initSelect2, searchUser } from '../plugins/init_select2';
 
 
-hoverOnCard();
+// hoverOnCard();
 navbarCollapse();
 initMapbox();
 initAutocomplete();

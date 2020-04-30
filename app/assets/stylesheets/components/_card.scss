@@ -1,28 +1,10 @@
-// .cards {
-//   padding-top: 16px;
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-//   grid-gap: 16px;
-// }
-
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: #e2e2e2;
-  // padding-top: 16px;
-  padding-bottom: 32px;
-  width: 100%;
-  .btn {
-    width: 180px;
-    margin-top: 16px;
-  }
-}
+// Dashboard
 #add-new-place-card {
-background-color: $light-strawberry;
+border-color: $tangerine;
+background-color: $snow;
+ border: $tangerine 2px solid;
 a{
-  color: $strawberry;
+  color: $tangerine;
 }
 }
 .shuffle-card {
@@ -35,71 +17,25 @@ a{
   align-items: center;
   text-align: center;
   font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  background-color: $snow;
+  // font-weight: bold;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-color: $orange;
+
   a {
-    color: $orange;
+    color: $liver;
   }
   &:hover {
     transform: scale(1.05);
-    border-color: $strawberry;
     text-decoration: none;
     transition: all .2s ease-in-out;
     a {
-    color: $strawberry;
+    color: $liver;
     text-decoration: none;
     }
   }
 }
-
-// .card {
-//   position: relative;
-//   background-size: cover;
-//   background-position: center;
-//   height: 180px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   font-size: 24px;
-//   font-weight: bold;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//   border-radius: 5px;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   border-color: $orange;
-//   a {
-//     color: $orange;
-//   }
-//   &:hover {
-//     transform: scale(1.05);
-//     border-color: $strawberry;
-//     text-decoration: none;
-//     transition: all .2s ease-in-out;
-//     a {
-//     color: $strawberry;
-//     text-decoration: none;
-//     }
-//   }
-// }
-// .card-new {
-//   background-color: $strawberry;
-//   border-color: $strawberry;
-//   a {
-//     color: white;
-//   }
-//   &:hover {
-//    color: white;
-//    a {
-//     color: white;
-//    }
-//  }
-// }
-// #places-container {
-//   background-color: $strawberry;
-// }
 
 
 // Show place of each Pépite
@@ -115,13 +51,17 @@ a{
   margin-bottom: 80px;
   h1 {
     font: $title;
-    font-size: 4rem;
+    font-size: 3rem;
+    color: $liver;
+  }
+  p {
+    color: $snow
   }
   a {
-    color: white;
+    color: $snow;
     &:hover {
-      color: $orange;
-      text-decoration: note;
+      color: $liver;
+      text-decoration: none;
     }
   }
 }
@@ -131,8 +71,8 @@ a{
   margin-top: -40px;
 }
 .show-place-card-review {
-  background-color: $gray;
-  color: $gray-dark;
+  background-color: $pale_silver;
+  color: $liver;
 
   padding: 20px;
   border-radius: 5px;
@@ -140,23 +80,10 @@ a{
   margin-bottom: 15px;
 }
 
-// .place-card-address{
-// font-size: 15px;
-// padding-top: 16px;
-// }
-
-
-// .place-card-description {
-//   font-size: 15px;
-//   text-align: left;
-//   padding-top: 16px;
-
-
-// }
-
+// Manage Categories page
 .category-card {
   background-color: $gray;
-  color: $gray-dark;
+  color: $liver;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -165,13 +92,13 @@ a{
 }
 
 .category-card-options a {
-  color: $orange;
+  color: $purple;
   justify-content: center;
   // height: 20px;
   // width: 30px;
   opacity: 0.8;
   &:hover {
-    color: $strawberry;
+    color: $purple;
     text-decoration: none;
     opacity: 1;
   }
@@ -181,13 +108,13 @@ a{
   padding-left: 15px;
   font-size: 1.3rem;
   &:hover{
-color: $strawberry;
+color: $purple;
 text-decoration: none;
   }
 }
 
 .card-options {
-  color: $orange;
+  color: $liver;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,9 +133,9 @@ text-decoration: none;
   top: 8px;
   transform: rotate(45deg);
   border-radius: 50%;
-  border: 1px solid $strawberry;
+  border: 1px solid $liver;
   &:hover {
-  border: 1px solid $strawberry;
+  border: 1px solid $liver;
   }
 }
 
