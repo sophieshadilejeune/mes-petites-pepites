@@ -6,10 +6,12 @@ Link : http://techhysahil.com
 /* Assign min-width to container */
 .select2-container{
     min-width:210px;
+    color: black
 }
 /*Theme Color override*/
 .select2-container--default .select2-results__option--highlighted[aria-selected]{
     background: $strawberry !important;
+    color: white;
 }
 .select2-container--default .select2-results__option[aria-selected=true]{
     background: $strawberry;
@@ -172,7 +174,7 @@ background-color: #e2e2e2a6;
 }
 .select2-container--open .select2-dropdown--below,
 .select2-container--open .select2-dropdown--above{
-    background: none;
+    background: #e2e2e2c9;
     border-radius: 14px
 }
 /*Tags Style*/

@@ -2,7 +2,12 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
+
+
 import "bootstrap";
+import '@client-side-validations/client-side-validations'
+import '@client-side-validations/simple-form/dist/simple-form.bootstrap4'
+
 
 
 import { hoverOnCard } from './card_hover';

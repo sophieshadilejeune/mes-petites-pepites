@@ -35,10 +35,11 @@
 .btn-area-fill {
   background-color: $strawberry;
   color: white;
+  border: 1px solid $strawberry;
   &:hover{
-    background-color: $tangerine;
+    background-color: $liver;
     color: white;
-    border: 1px solid $tangerine;
+    border: 1px solid $liver;
 
   }
 }

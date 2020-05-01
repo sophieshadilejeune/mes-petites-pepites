@@ -16,6 +16,9 @@ class PlacesController < ApplicationController
         infowindow: render_to_string(partial: "infowindow", locals: { place: place })
       }
     end
+    def blank_stars
+      5 - rating.to_i
+    end
   end
 
   def new

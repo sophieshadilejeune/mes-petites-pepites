@@ -6,7 +6,7 @@
         <div class="category-card ">
 
         <div>
-        <%= simple_form_for(@category) do |f| %>
+        <%= simple_form_for @category, validate: true do |f| %>
 <%= f.input :name %>
 <%= f.submit "Add this category", class: "btn btn-ghost btn-area-fill" %>
 <% end %>

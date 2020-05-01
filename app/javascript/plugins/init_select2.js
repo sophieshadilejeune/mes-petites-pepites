@@ -4,7 +4,7 @@ import 'select2';
 
 const initSelect2 = () => {
   $('#user-input').select2({
-    placeholder: "Check some examples",
+    placeholder: "Discover some Pépites",
     allowClear: true
   }); // (~ document.querySelectorAll)
 };

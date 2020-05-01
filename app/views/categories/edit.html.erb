@@ -1,7 +1,7 @@
 <div class="container-fluid form">
   <div class="row">
     <div class="col-8 col-md-4 col-xl-4 offset-2 offset-md-4 offset-xl-4">
-<%= simple_form_for(@category) do |f| %>
+<%= simple_form_for @category, validates: true do |f| %>
 <%= f.input :name %>
 <%= f.submit "Save changes", class: "btn btn-ghost btn-area-fill" %>
 <% end %>

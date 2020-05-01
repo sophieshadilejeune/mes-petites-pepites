@@ -7,7 +7,9 @@ class User < ApplicationRecord
   using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
-    devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :validatable
-    has_many :reviews
+  validates :nickname, presence: true, uniqueness: true
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
+  has_many :reviews
+
   end
