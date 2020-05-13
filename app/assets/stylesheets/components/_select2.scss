@@ -201,3 +201,7 @@ background-color: #e2e2e2ed;
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
     color: #fff;
 }
+
+.select2.select2-container.select2-container--default {
+  width: 25% !important;
+}
