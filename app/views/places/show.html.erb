@@ -8,10 +8,9 @@
             <p>"<%= @place.description %>"</p>
             <i class="fas fa-map-marker-alt"></i>
             <a href="#map"><%= @place.address %></a>
+
+            <% if @reviews.count > 0 %>
             <p style="margin-top: 15px;">
-
-
-
 
             <% @average.times do %>
             <span style="float:left">
@@ -23,9 +22,9 @@
             <span style="float: left"><%= image_tag "diamond-empty.png", style: "width: 20px" %></span>
             <% end %>
 
-
-
             </p>
+            <% end %>
+
             <p style="margin-top: 50px; text-align: right">Created by: <% if @place.user == current_user %>
               Myself
               <% else %><%= @place.user.nickname %></p>

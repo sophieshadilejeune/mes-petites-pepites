@@ -4,11 +4,13 @@ class PlacesController < ApplicationController
   def show
   @review = Review.new
   @reviews = @place.reviews
+  if @reviews.count > 0
   @rating_sum = 0
   @reviews.each do |review|
     @rating_sum += review.rating
     end
   @average = @rating_sum / @reviews.count
+  end
   @place_geo = []
   @place_geo << @place
     @markers = @place_geo.map do |place|
