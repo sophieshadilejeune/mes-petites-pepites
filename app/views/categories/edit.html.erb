@@ -1,9 +1,9 @@
-<div class="container-fluid form">
+<div class="fluid-container form">
   <div class="row">
     <div class="col-8 col-md-4 col-xl-4 offset-2 offset-md-4 offset-xl-4">
-<%= simple_form_for @category, validates: true do |f| %>
+<%= simple_form_for @category, validate: true do |f| %>
 <%= f.input :name %>
-<%= f.submit "Save changes", class: "btn btn-ghost btn-area-fill" %>
+<%= f.submit "Save this category", class: "btn btn-ghost btn-area-fill", style: "text-align: center" %>
 <% end %>
 
     </div>

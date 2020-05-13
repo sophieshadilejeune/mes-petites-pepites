@@ -8,6 +8,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+<!--   <%= f.input :city_ids, label: 'Choose your City', collection: City.all, input_html:  { class: "registration-form-select2" }
+
+ %> -->
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -24,7 +27,7 @@
 
   <div class="form-actions" style="text-align: center">
     <%= f.button :submit, "Sign up",  class: "btn-ghost btn-area-fill" %>
-  </div>
+ </div>
 <% end %>
 <!-- <br>
 <%= render "devise/shared/links" %> -->

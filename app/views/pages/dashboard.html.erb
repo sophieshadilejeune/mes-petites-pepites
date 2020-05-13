@@ -1,13 +1,33 @@
+  <div class="visitor-banner">
+  Current City: <span id="city-name"><%= @city.name %></span>
+  <div class="search-form">
+          <select id="cities-input" class=" js-example-basic-single" style="
+          width:60%; position:absolute;">
+          <option value=""></option>
+          <% @cities.each do |city| %>
+          <option data-name="<%= city.name.downcase %>" value="<%= city.name %>"><%= city.name %></option>
+          <% end %>
+        </select>
+</div>
+
+</div>
+
   <div class="categories-options">
-<%= link_to new_category_path do  %>
-  <i class="fas fa-plus-circle fa-lg"></i>
-  <% end %>
-  <%= link_to "Manage Categories", categories_manage_path, style: "font-size: 0.8rem; padding-top: -10px", class: "manage-categories-link"  %>
+
+  <div class="toggle" style="float: left">
+  <div class="text-switch" id="text-switch" >
+OFF : Displaying everybody's Pépites
+</div>
+<label class="switch" id="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+</div>
 
 <div class="categories">
 
-  <div class="btn btn-ghost" id="category-button-all">
-    See all the Pépites
+    <div class="btn btn-ghost" id="category-button-all">
+    See all Pépites in <%= @city.name %>
   </div>
 
   <% @categories.each do |category| %>
@@ -16,6 +36,8 @@
   </div>
   <% end %>
 </div>
+
+  <%= link_to "Manage Categories", manage_categories_path, class: "manage-categories-link"  %>
   </div>
 
 <div id="places-container" class="fluid-container">
@@ -24,11 +46,21 @@
 
   <div id="grid" class="row my-shuffle-container" >
 
- <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item" data-groups='["Default"]'  style="top: 0px; left: 0px;">
+ <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item-user" data-groups='["Default"]'  style="top: 0px; left: 0px;">
 
     <div id="add-new-place-card" class="shuffle-card">
       <div class="shuffle-card-body" style="flex: 1 1 auto; padding: 1.25rem;">
-      <%= link_to "Add a new Pépite" ,new_place_path%>
+      <%= link_to "Add a new Pépite" ,new_city_place_path(@city) %>
+      </div>
+    </div>
+
+  </div>
+
+ <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item-all" data-groups='["Default"]'  style="top: 0px; left: 0px;">
+
+    <div id="add-new-place-card" class="shuffle-card">
+      <div class="shuffle-card-body" style="flex: 1 1 auto; padding: 1.25rem;">
+      <%= link_to "Add a new Pépite" ,new_city_place_path(@city) %>
       </div>
     </div>
 
@@ -36,14 +68,18 @@
 
 <% @places.each do |place|  %>
 
-  <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item" data-groups='["<%= place.category.name  %>"]' style="top: 0px; left: 0px;">
+  <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item-all" data-groups='["<%= place.category.name  %>"]' data-owner="all" style="top: 0px; left: 0px;">
 
     <div class="shuffle-card" id="place_card">
       <div class="shuffle-card-body" style="flex: 1 1 auto; padding: 1.25rem;">
-        <%= link_to "#{place.name}" , place_path(place) %>
-        <%= link_to '+', place_path(place), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-options option-remove-link'  %>
-        <%= link_to edit_place_path(place), class: "card-options option-edit-link" do %>
+        <%= link_to "#{place.name}" , city_place_path(place.city, place) %>
+        <% if place.user_id == @user.id %>
+        <%= link_to '+', city_place_path(place.city, place), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-options option-remove-link'  %>
+        <%= link_to edit_city_place_path(place.city, place), class: "card-options option-edit-link" do %>
         <i class="far fa-edit fa-xs"></i>
+        <% end %>
+        <% else %>
+        <p style="font-size: 0.8rem">Created by: <%= place.user.nickname %></p>
         <% end %>
       </div>
     </div>
@@ -51,12 +87,29 @@
 
 <% end %>
 
+<% @my_places.each do |my_place| %>
+
+
+  <div class="mt-3 mb-2 col-6 col-md-4 col-xl-3 shuffle-item-user" data-groups='["<%= my_place.category.name  %>"]' data-owner="user" style="top: 0px; left: 0px;">
+
+    <div class="shuffle-card" id="place_card">
+      <div class="shuffle-card-body" style="flex: 1 1 auto; padding: 1.25rem;">
+        <%= link_to "#{my_place.name}" , city_place_path(my_place.city, my_place) %>
+        <%= link_to '+', city_place_path(my_place.city, my_place), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-options option-remove-link'  %>
+        <%= link_to edit_city_place_path(my_place.city, my_place), class: "card-options option-edit-link" do %>
+        <i class="far fa-edit fa-xs"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
   </div>
 
 </div>
 </div>
 
-
+<% if @places.count > 0 %>
   <div class="container container-map" style="margin-top: 30px;">
 
     <div id="map"
@@ -65,5 +118,5 @@
 </div>
 </div>
 
-
+<% end %>
 

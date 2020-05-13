@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[edit update destroy]
 
   def new
     @category = Category.new
@@ -7,16 +7,11 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(params_category)
-    @category.user_id = current_user.id
     if @category.save
-      redirect_to categories_manage_path
+      redirect_to manage_categories_path
     else
       render :new
     end
-  end
-
-  def show
-    @places = Place.where(category: params[:id])
   end
 
   def edit
@@ -24,18 +19,17 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(params_category)
-    redirect_to categories_manage_path
+    redirect_to manage_categories_path
   end
 
   def destroy
     @category.destroy
-    redirect_to categories_manage_path
+    redirect_to manage_categories_path
   end
 
   def manage
-    @categories = Category.where(user_id: current_user.id)
+    @categories = Category.all
     @category = Category.new
-
   end
 
   private

@@ -8,7 +8,28 @@
             <p>"<%= @place.description %>"</p>
             <i class="fas fa-map-marker-alt"></i>
             <a href="#map"><%= @place.address %></a>
+            <p style="margin-top: 15px;">
 
+
+
+
+            <% @average.times do %>
+            <span style="float:left">
+              <%= image_tag "diamond-filled.png", style: "width: 20px" %>
+            </span>
+            <% end %>
+
+            <% (5 - @average).times do %>
+            <span style="float: left"><%= image_tag "diamond-empty.png", style: "width: 20px" %></span>
+            <% end %>
+
+
+
+            </p>
+            <p style="margin-top: 50px; text-align: right">Created by: <% if @place.user == current_user %>
+              Myself
+              <% else %><%= @place.user.nickname %></p>
+              <% end %>
 
           </div>
         </div>
@@ -23,7 +44,7 @@
         <div class="show-place-card-review">
 
           <p>Add a review</p>
-          <%= simple_form_for [ @place, @review ], validates: true do |f| %>
+          <%= simple_form_for [ @place.city, @place, @review ], validates: true do |f| %>
           <%= f.input :content %>
           <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
           <%= f.submit class: "btn-ghost btn-area-fill" %>
@@ -32,22 +53,22 @@
 
         <% end %>
 
-        <% @place.reviews.each do |review| %>
+        <% @reviews.each do |review| %>
 
 
         <div class="show-place-card-review">
           <div>
-            <em>Posted by:</em> <a href="/users/<%= User.where(id: review.user_id)[0].id %>"> <%= User.where(id: review.user_id)[0].nickname %></a>
+            <em>Posted by:</em> <a href="/users/<%= User.where(id: review.user_id)[0].nickname.downcase %>/cities/<%= User.where(id: review.user_id)[0].cities.first.name.downcase %>"> <%= User.where(id: review.user_id)[0].nickname %></a>
 
 
 
             <% (5 - (review.rating)).times do %>
-            <span style="float: right"><%= image_tag "diamond-empty.png", style: "width: 20px" %></span>
+            <span style="float: right"><%= image_tag "diamond-empty.png", style: "width: 12px" %></span>
             <% end %>
 
             <% review.rating.times do %>
             <span style="float:right">
-              <%= image_tag "diamond-filled.png", style: "width: 20px" %>
+              <%= image_tag "diamond-filled.png", style: "width: 12px" %>
             </span>
             <% end %>
           </div>

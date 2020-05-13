@@ -149,6 +149,10 @@ a{
   display: none;
 }
 
+.hide-places {
+  visibility: hidden;
+}
+
 // Media queries
 @media(max-width: 992px) {
   .cards, .categories {

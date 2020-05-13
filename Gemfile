@@ -21,6 +21,7 @@ gem 'geocoder'
 gem 'trix-rails', require: 'trix'
 gem 'pg_search', '~> 2.3.0'
 gem 'ratyrate'
+gem 'friendly_id', '~> 5.2.4'
 
 
 group :development do

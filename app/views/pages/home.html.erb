@@ -12,20 +12,46 @@
         <!-- <p style="font-size: 1.5rem; opacity:1">Discover some Pépites</p> -->
         <div class="search-form" style="margin-top: 20px;">
           <select id="user-input" class=" js-example-basic-single" style="
-          width:60%; position:absolute;">
+          width:200px; position:absolute;">
           <option value=""></option>
           <% @users.each do |user| %>
-          <option data-id="<%= user.id %>" value="<%= user.nickname %>"><%= user.nickname %></option>
+          <% if user.cities.count == 0 %>
+             <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>"><%= user.nickname %></option>
+          <% else %>
+          <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>" data-city="<%= user.cities.first.name.downcase %>"><%= user.nickname %></option>
+          <% end %>
           <% end %>
         </select>
       </div>
+
+      <div class="search-form" style="margin-top: 20px;">
+          <select id="city-search" class=" js-example-basic-single" style="
+          width:200px; position:absolute;">
+          <option value=""></option>
+          <% @cities.each do |city| %>
+          <option data-name="<%= city.name.downcase %>" value="<%= city.name %>"><%= city.name %></option>
+          <% end %>
+        </select>
+      </div>
+<div style="margin-top: 30px;">
+          <% if user_signed_in? %>
+          <% if @user.cities.count == 0 %>
+            <%= link_to "My PépitesBoard", cities_select_path, class: "nav-link btn-ghost bt", style: "flex:none; width:200px" %>
+          <% else %>
+      <%= link_to "My PépitesBoard", dashboard_path(@user.cities.first.id), class: "nav-link btn-ghost bt", style: "flex:none; width:200px" %>
+      <% end %>
+</div>
+
+          <% else %>
       <p style="font-size: 1rem; opacity:1;margin-top: 30px;">Or create your own:</p>
       <div style="display: flex;">
+
 
       <%= link_to "Login", new_user_session_path, class: "nav-link btn-ghost bt", style: "flex:none"%>
 
           <%= link_to "Sign Up",  new_user_registration_path, class: "nav-link btn-ghost", style: "flex:none" %>
           </div>
+          <% end %>
     </div>
   </div>
 </div>

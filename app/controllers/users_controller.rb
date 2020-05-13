@@ -1,14 +1,23 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
+
   def show
-    @user = User.find(params[:id])
-        if params[:term].present?
-    @users = User.search(params[:term])
-   else
+    @user = User.friendly.find(params[:user_id])
+    if params[:term].present?
+      @users = User.search(params[:term])
+    else
      @users = User.all
    end
-    @categories = Category.where(user_id: @user.id)
-    @places = Place.where(user_id: @user.id)
+   if @user.cities.count != 0
+    @city = City.friendly.find(params[:id])
+    @cities = @user.cities
+    @places = @city.places.where(user_id: @user.id)
+    categories = []
+    @places.each do |place|
+      categories << place.category
+    end
+    @categories = categories.uniq
+
     @places_geo = @places.where.not(latitude: nil, longitude: nil)
     @markers = @places_geo.map do |place|
       {
@@ -19,4 +28,5 @@ class UsersController < ApplicationController
       }
     end
   end
+end
 end

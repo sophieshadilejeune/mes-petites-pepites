@@ -1,21 +1,3 @@
-.btn-ghost-navbar {
-  color: $strawberry;
-  border-bottom: 2px solid $strawberry;
-  // background-color: $tangerine;
-  padding: 8px 24px;
-  border-radius: 14px;
-  font-weight: lighter;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  margin-right: 20px;
-  &:hover{
-  color: $tangerine;
-  border-bottom: 2px solid $tangerine;
-  text-decoration: none;
-  // background-color: $purple;
-  }
-}
-
 .btn-ghost {
   color: $tangerine;
   border: 1px solid $tangerine;

@@ -8,13 +8,23 @@ const mapElement = document.getElementById('map');
 
 
 const addMarkers = (map, markers) => {
+
+const userID = document.querySelector("#user-id").dataset.id
+
 markers.forEach((marker) => {
   const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
-
+  console.log(marker)
+if (marker.owner == userID) {
   new mapboxgl.Marker({color: '#F6A18E'})
   .setLngLat([ marker.lng, marker.lat ])
   .setPopup(popup)
   .addTo(map);
+} else {
+    new mapboxgl.Marker({color: '#D8CACA'})
+  .setLngLat([ marker.lng, marker.lat ])
+  .setPopup(popup)
+  .addTo(map);
+};
 });
 };
 
@@ -37,6 +47,9 @@ mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   });
 
 
+
+const toggle = document.querySelector('input[type="checkbox"]')
+
 const markers = JSON.parse(mapElement.dataset.markers);
 
 const categoryButtonAll = document.querySelector("#category-button-all")
@@ -52,16 +65,17 @@ const markersPerCategory = [];
   const categoryName = event.currentTarget.innerText;
 
   markers.forEach((marker) => {
-    if (marker.category === categoryName) {
+    if (marker.category == categoryName) {
       markersPerCategory.push(marker);
     };
-  });
+    });
 fitMapToMarkers(map, markersPerCategory);
-
 });
 });
 fitMapToMarkers(map, markers);
 addMarkers(map, markers);
+
+
 //add lines below if want to add the search field on the map
 // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
 //   mapboxgl: mapboxgl }));

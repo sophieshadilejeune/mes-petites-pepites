@@ -1,11 +1,11 @@
 <div class="container-fluid form">
   <div class="row">
     <div class="col-8 col-md-4 col-xl-4 offset-2 offset-md-4 offset-xl-4">
-<%= simple_form_for @place, validate: true do |f| %>
+<%= simple_form_for [@city, @place], validate: true do |f| %>
 <%= f.input :name %>
 <%= f.input :address %>
 <%= f.input :description%>
-<%= f.association :category, collection: Category.where(user_id: current_user.id) %>
+<%= f.association :category %>
 <%= f.submit "Add this Pépite", class: "btn btn-ghost btn-area-fill" %>
 <% end %>
 

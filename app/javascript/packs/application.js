@@ -5,8 +5,8 @@ require("channels")
 
 
 import "bootstrap";
-import '@client-side-validations/client-side-validations'
-import '@client-side-validations/simple-form/dist/simple-form.bootstrap4'
+// import '@client-side-validations/client-side-validations'
+// import '@client-side-validations/simple-form/dist/simple-form.bootstrap4'
 
 
 
@@ -15,8 +15,7 @@ import { navbarCollapse } from './navbar_collapse';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initShuffle } from '../plugins/init_shuffle';
-import { initSelect2, searchUser } from '../plugins/init_select2';
-
+import { initSelect2, searchUser, searchCity, searchByCity, addCityToUser, chooseAnotherCity } from '../plugins/init_select2';
 
 // hoverOnCard();
 navbarCollapse();
@@ -25,7 +24,9 @@ initAutocomplete();
 // initHuntersList();
 initSelect2();
 searchUser();
+searchCity();
+searchByCity();
+addCityToUser();
+chooseAnotherCity();
 initShuffle();
-
-
 

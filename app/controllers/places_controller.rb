@@ -3,9 +3,12 @@ class PlacesController < ApplicationController
 
   def show
   @review = Review.new
-  @reviews = Review.all
-  # @user = User.where(id: review.user_id)
-  # @nickname = @user[0].nickname
+  @reviews = @place.reviews
+  @rating_sum = 0
+  @reviews.each do |review|
+    @rating_sum += review.rating
+    end
+  @average = @rating_sum / @reviews.count
   @place_geo = []
   @place_geo << @place
     @markers = @place_geo.map do |place|
@@ -22,14 +25,16 @@ class PlacesController < ApplicationController
   end
 
   def new
-    @place = Place.new
+  @city = City.friendly.find(params[:city_id])
+  @place = Place.new
   end
 
   def create
     @place = Place.new(params_place)
+    @place.city = City.friendly.find(params[:city_id])
     @place.user_id = current_user.id
     if @place.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path(@place.city)
     else
       render :new
     end
@@ -40,21 +45,21 @@ class PlacesController < ApplicationController
 
   def update
     @place.update(params_place)
-    redirect_to place_path(@place)
+    redirect_to dashboard_path(@place.city)
   end
 
   def destroy
     @place.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_path(@place.city)
   end
 
   private
 
   def set_place
-    @place = Place.find(params[:id])
+    @place = Place.friendly.find(params[:id])
   end
 
   def params_place
-    params.require(:place).permit(:name, :description, :address, :category_id)
+    params.require(:place).permit(:name, :description, :address, :category_id, :city_id)
   end
 end

@@ -5,6 +5,7 @@ body {
 .categories-options{
   background-color: $liver;
   padding-top: 16px;
+  padding-bottom: 16px;
 }
 .categories {
   display: flex;
@@ -13,7 +14,7 @@ body {
   align-items: flex-start;
   // background-image: linear-gradient(to bottom right, $gray, $liver);
   background-color: $liver;
-  padding-bottom: 32px;
+  padding-bottom: 30px;
   width: 100%;
   // border-bottom: $tangerine 3px solid;
   // box-shadow-bottom: 0 0 15px rgba(0,0,0,0.2);
@@ -32,9 +33,11 @@ body {
   }
 .manage-categories-link {
   float: right;
-  margin: 10px 20px 0 0;
   color: $tangerine;
-&:hover{
+  font-size: 0.8rem;
+  margin-top: -11px;
+  margin-right: 20px;
+  &:hover{
   color: $strawberry;
   text-decoration: none;
 }
@@ -45,3 +48,7 @@ float:left;
 margin: 10px 0 0 20px;
 }
 
+.toggle{
+    float: left;
+    margin-left: 10px;
+}

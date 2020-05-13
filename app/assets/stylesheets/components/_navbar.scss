@@ -16,7 +16,7 @@
 }
 
 .navbar-lewagon .navbar-collapse li {
-    text-align: right;
+    text-align: -webkit-right;
     margin-top: 20px;
     a{
       margin-right: 0px;
@@ -42,10 +42,31 @@
 color: $liver;
 font-size: 1.5rem;
 font-family: $title;
+text-align: -webkit-right;
+.nav-link.btn-ghost-navbar {
+  color: $strawberry !important;
+  border-bottom: 2px solid $strawberry;
+  // background-color: $tangerine;
+  padding: 8px 24px;
+  border-radius: 14px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  margin-right: 0px;
+  text-align: center;
+  &:hover{
+  color: $tangerine;
+  border-bottom: 2px solid $tangerine;
+  text-decoration: none;
+  // background-color: $purple;
+  }
+}
 a {
   font-size: 1rem;
 }
 }
+
+
 
 .nav-item.dropdown.show {
   text-align: -webkit-right;

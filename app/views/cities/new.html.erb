@@ -1,0 +1,11 @@
+<div class="fluid-container form">
+  <div class="row">
+    <div class="col-8 col-md-4 col-xl-4 offset-2 offset-md-4 offset-xl-4">
+<%= simple_form_for @city, validate: true do |f| %>
+<%= f.input :name %>
+<%= f.submit "Add this city", class: "btn btn-ghost btn-area-fill", style: "text-align: center" %>
+<% end %>
+
+    </div>
+  </div>
+</div>
