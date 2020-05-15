@@ -3,19 +3,23 @@ import 'select2';
 
 
 const initSelect2 = () => {
-  $('#user-input').select2({
+  $('#user-search-home').select2({
     placeholder: "Discover by User",
     allowClear: true
   }); // (~ document.querySelectorAll)
-  $('#city-search').select2({
+  $('#city-search-home').select2({
     placeholder: "Discover by City",
     allowClear: true
   }); // (~ document.querySelectorAll)
-  $('#cities-input').select2({
+  $('#city-choose-user-show').select2({
     placeholder: "Choose another city",
     allowClear: true
   }); // (~ document.querySelectorAll)
-  $('#city-choose').select2({
+  $('#city-choose-show').select2({
+    placeholder: "Choose another city",
+    allowClear: true
+  });
+  $('#city-choose-dashboard').select2({
     placeholder: "Choose another city",
     allowClear: true
   });
@@ -33,9 +37,9 @@ const addCityToUser = () => {
   };
 
 
-const searchUser = () => {
+const visitorPageUser = () => {
   $(document).ready(function() {
-    $('#user-input').on('select2:select', function(e) {
+    $('#user-search-home').on('select2:select', function(e) {
       var itemUsername = e.params.data.element.dataset.nickname;
       var itemUserCity = e.params.data.element.dataset.city;
 
@@ -44,29 +48,30 @@ const searchUser = () => {
 });
 };
 
-const searchByCity = () => {
+const visitorPageCity = () => {
   $(document).ready(function() {
-    $('#city-search').on('select2:select', function(e) {
+    $('#city-search-home').on('select2:select', function(e) {
       var itemCity = e.params.data.element.dataset.name;
       window.open('/cities/'+itemCity, "_self");
     });
 });
 };
 
-const chooseAnotherCity = () => {
+const moveToAnotherCity = () => {
   $(document).ready(function() {
-    $('#city-choose').on('select2:select', function(e) {
+    $('#city-choose-show').on('select2:select', function(e) {
       var itemCity = e.params.data.element.dataset.name;
       window.open('/cities/'+itemCity, "_self");
     });
 });
 };
 
-const searchCity = () => {
+const moveToAnotherCityUser = () => {
   $(document).ready(function() {
-    $('#cities-input').on('select2:select', function(e) {
-      var item = e.params.data.element.dataset.name;
-      window.open('/dashboard/cities/'+item, "_self");
+    $('#city-choose-user-show').on('select2:select', function(e) {
+      var itemCity = e.params.data.element.dataset.name;
+      var itemUser = e.params.data.element.dataset.owner;
+      window.open('/users/'+itemUser+'/cities/'+itemCity, "_self");
     });
     $('#cities-input').on('select2:open', () => {
         $(".select2-results:not(:has(a))").append('<a href="/cities/select" style="padding: 6px;height: 20px;display: inline-table;">Add a new city</a>');
@@ -74,4 +79,16 @@ const searchCity = () => {
   });
 };
 
-export { initSelect2, searchUser, searchCity, searchByCity, addCityToUser, chooseAnotherCity };
+const chooseCityDashboard = () => {
+  $(document).ready(function() {
+    $('#city-choose-dashboard').on('select2:select', function(e) {
+      var itemCity = e.params.data.element.dataset.name;
+      window.open('/dashboard/cities/'+itemCity, "_self");
+    });
+    $('#cities-input').on('select2:open', () => {
+        $(".select2-results:not(:has(a))").append('<a href="/cities/select" style="padding: 6px;height: 20px;display: inline-table;">Add a new city</a>');
+});
+  });
+};
+
+export { initSelect2, addCityToUser, chooseCityDashboard, visitorPageUser,visitorPageCity, moveToAnotherCity, moveToAnotherCityUser };

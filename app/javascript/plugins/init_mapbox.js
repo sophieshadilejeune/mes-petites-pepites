@@ -13,7 +13,6 @@ const userID = document.querySelector("#user-id").dataset.id
 
 markers.forEach((marker) => {
   const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
-  console.log(marker)
 if (marker.owner == userID) {
   new mapboxgl.Marker({color: '#F6A18E'})
   .setLngLat([ marker.lng, marker.lat ])

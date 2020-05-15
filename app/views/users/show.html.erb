@@ -9,11 +9,11 @@
   Current City: <span id="city-name"><%= @city.name %></span>
   <% if @user.cities.count > 1 %>
   <div class="search-form">
-          <select id="cities-input" class=" js-example-basic-single" style="
+          <select id="city-choose-user-show" class=" js-example-basic-single" style="
           width:60%; position:absolute;">
           <option value=""></option>
           <% @cities.each do |city| %>
-          <option data-id="<%= city.id %>" data-name="<%= city.name.downcase %>" value="<%= city.name %>"><%= city.name %></option>
+          <option data-id="<%= city.id %>" data-name="<%= city.name.downcase %>" data-owner="<%= @user.nickname.downcase %>" value="<%= city.name %>"><%= city.name %></option>
           <% end %>
         </select>
 </div>

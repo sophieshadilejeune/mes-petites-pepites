@@ -15,7 +15,7 @@ import { navbarCollapse } from './navbar_collapse';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initShuffle } from '../plugins/init_shuffle';
-import { initSelect2, searchUser, searchCity, searchByCity, addCityToUser, chooseAnotherCity } from '../plugins/init_select2';
+import { initSelect2, addCityToUser, chooseCityDashboard, visitorPageUser,visitorPageCity, moveToAnotherCity, moveToAnotherCityUser } from '../plugins/init_select2';
 
 // hoverOnCard();
 navbarCollapse();
@@ -23,10 +23,11 @@ initMapbox();
 initAutocomplete();
 // initHuntersList();
 initSelect2();
-searchUser();
-searchCity();
-searchByCity();
 addCityToUser();
-chooseAnotherCity();
+chooseCityDashboard();
+visitorPageUser();
+visitorPageCity();
+moveToAnotherCity();
+moveToAnotherCityUser();
 initShuffle();
 

@@ -11,13 +11,13 @@ const toggle = document.querySelector('input[type="checkbox"]')
 
 const textSwitch = document.querySelector("#text-switch")
 
-const allPlaces = document.querySelectorAll(".shuffle-item-all")
+const allPlaces = document.querySelectorAll(".shuffle-item-visitor")
 
 const userPlaces = document.querySelectorAll(".shuffle-item-user")
 
-const cityName = document.querySelector("#city-name")
 
-const removeAllAddUser = () => {
+
+const ShowAllHideUser = () => {
   allPlaces.forEach((place) => {
     place.classList.remove("disabled")
 });
@@ -26,7 +26,7 @@ const removeAllAddUser = () => {
   });
 };
 
-const removeUserAddAll = () => {
+const ShowUserHideAll = () => {
    userPlaces.forEach((place) => {
       place.classList.remove("disabled")
   });
@@ -35,42 +35,42 @@ const removeUserAddAll = () => {
 });
 };
 
-const initActionCategoryButton = (shuffleInstance, shuffleInstanceUser, shuffleInstanceVisitor) => {
+const initActionCategoryButton = (shuffleInstanceUser, shuffleInstanceVisitor) => {
   categoryButton.forEach((button) => {
       button.addEventListener("click", (event) => {
-        const category = event.currentTarget.innerText;
-        if (toggle) {
-        if (toggle.checked) {
-          removeUserAddAll();
-          shuffleInstanceUser.filter([`${category}`, "Default"]);
-        } else {
-          removeAllAddUser();
-          shuffleInstance.filter([`${category}`, "Default"]);
-        };
-
-        } else {
-
-          shuffleInstanceVisitor.filter([`${category}`, "Default"]);
-        };
-
         categoryButton.forEach((button) => {
           button.classList.remove("category-active")
         });
         event.currentTarget.classList.add("category-active")
         categoryButtonAll.classList.remove("category-active")
+        const category = event.currentTarget.innerText;
+        if (toggle){
+        if (toggle.checked){
+          ShowUserHideAll();
+          console.log("true, checked")
+          shuffleInstanceUser.filter([`${category}`, "Default"]);
+        } else {
+          console.log("false, unchecked")
+          ShowAllHideUser();
+          shuffleInstanceVisitor.filter([`${category}`, "Default"]);
+        };
+      } else {
+        console.log("no-toggle")
+        shuffleInstanceVisitor.filter([`${category}`, "Default"]);
+      };
       });
     });
 };
 
-const initActionCategoryButtonAll = (shuffleInstance, shuffleInstanceUser, shuffleInstanceVisitor) => {
+const initActionCategoryButtonAll = (shuffleInstanceUser, shuffleInstanceVisitor) => {
   categoryButtonAll.addEventListener("click", (event) => {
     if (toggle) {
       if (toggle.checked) {
-        removeUserAddAll();
+        ShowUserHideAll();
         shuffleInstanceUser.filter(Shuffle.ALL_ITEMS);
       } else {
-        removeAllAddUser();
-        shuffleInstance.filter(Shuffle.ALL_ITEMS);
+        ShowAllHideUser();
+        shuffleInstanceVisitor.filter(Shuffle.ALL_ITEMS);
       };
     } else {
         shuffleInstanceVisitor.filter(Shuffle.ALL_ITEMS);
@@ -82,29 +82,33 @@ const initActionCategoryButtonAll = (shuffleInstance, shuffleInstanceUser, shuff
     });
 };
 
-const initActionToggle = (shuffleInstance, shuffleInstanceUser) => {
+const initActionToggle = (shuffleInstanceVisitor, shuffleInstanceUser) => {
   if (toggle) {
-      toggle.addEventListener("click", (event) => {
+      toggle.addEventListener("change", (event) => {
+      const cityName = document.querySelector("#category-button-all").innerText
+      console.log(cityName)
       const category = document.querySelector(".category-active");
       if (toggle.checked) {
         textSwitch.innerText = "ON : Displaying only my Pépites"
         textSwitch.classList.add("on")
-        removeUserAddAll();
-        console.log(category);
-        if (category.innerText === "See all Pépites in Melbourne") {
+        ShowUserHideAll();
+
+        if (category.innerText === cityName) {
           shuffleInstanceUser.filter(Shuffle.ALL_ITEMS);
         } else {
         shuffleInstanceUser.filter([`${category.innerText}`, "Default"]);
 
-        }
+        };
       } else {
         textSwitch.innerText = "OFF : Displaying everybody's Pépites"
         textSwitch.classList.remove("on")
-        removeAllAddUser();
-        if (category.innerText === 'See all Pépites in ${cityName}') {
-          shuffleInstance.filter(Shuffle.ALL_ITEMS);
+        ShowAllHideUser();
+
+        if (category.innerText === cityName) {
+
+          shuffleInstanceVisitor.filter(Shuffle.ALL_ITEMS);
         } else {
-        shuffleInstance.filter([`${category.innerText}`, "Default"]);
+        shuffleInstanceVisitor.filter([`${category.innerText}`, "Default"]);
       };
       };
 
@@ -117,7 +121,7 @@ const initShuffle = () => {
 
   if (element) {
 
-    const shuffleInstance = new Shuffle (element, { itemSelector: '.shuffle-item-all',
+    const shuffleInstanceAll = new Shuffle (element, { itemSelector: '.shuffle-item-all',
     });
 
     const shuffleInstanceUser = new Shuffle (element, { itemSelector: '.shuffle-item-user',
@@ -126,9 +130,9 @@ const initShuffle = () => {
     const shuffleInstanceVisitor = new Shuffle (element, { itemSelector: '.shuffle-item-visitor',
     });
 
-initActionCategoryButton(shuffleInstance, shuffleInstanceUser, shuffleInstanceVisitor);
-initActionCategoryButtonAll(shuffleInstance, shuffleInstanceUser, shuffleInstanceVisitor);
-initActionToggle(shuffleInstance, shuffleInstanceUser);
+initActionCategoryButton(shuffleInstanceUser, shuffleInstanceVisitor);
+initActionCategoryButtonAll(shuffleInstanceUser, shuffleInstanceVisitor);
+initActionToggle(shuffleInstanceVisitor, shuffleInstanceUser);
 
   };
 };

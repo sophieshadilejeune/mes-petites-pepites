@@ -7,6 +7,12 @@ a{
   color: $tangerine;
 }
 }
+
+.my-shuffle-container{
+// overflow: visible !important;
+
+}
+
 .shuffle-card {
   position: relative;
   background-size: cover;
@@ -146,7 +152,7 @@ a{
 }
 
 .disabled {
-  display: none;
+  visibility: hidden !important
 }
 
 .hide-places {
