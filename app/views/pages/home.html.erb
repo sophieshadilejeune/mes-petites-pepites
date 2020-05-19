@@ -36,7 +36,7 @@
 <div style="margin-top: 30px;">
           <% if user_signed_in? %>
           <% if @user.cities.count == 0 %>
-            <%= link_to "My PépitesBoard", cities_select_path, class: "nav-link btn-ghost bt", style: "flex:none; width:200px" %>
+            <%= link_to "My PépitesBoard", cities_select_path, class: "nav-link btn-ghost", style: "flex:none; width:200px" %>
           <% else %>
       <%= link_to "My PépitesBoard", dashboard_path(@user.cities.first.id), class: "nav-link btn-ghost bt", style: "flex:none; width:200px" %>
       <% end %>
