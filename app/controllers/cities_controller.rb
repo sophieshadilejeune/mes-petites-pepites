@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-   skip_before_action :authenticate_user!, only: [:new, :create]
+   skip_before_action :authenticate_user!, only: [:new, :create, :show]
 
   # def index
   #   @user = current_user
