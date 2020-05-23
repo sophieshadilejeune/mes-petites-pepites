@@ -10,7 +10,11 @@
           <% end %>
         </select>
 </div>
+  <% if @places.count == 0 %>
 
+  <p style="margin-top: 10px"><b>This city doesn't have any Pépite yet</b></p>
+</div>
+  <% else %>
 </div>
 
 <div class="categories">
@@ -50,7 +54,6 @@
 </div>
 </div>
 
-
   <div class="container container-map" style="margin-top: 30px;">
 
     <div id="map"
@@ -59,5 +62,4 @@
 </div>
 </div>
 
-
-
+<% end %>
