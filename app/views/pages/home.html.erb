@@ -18,7 +18,7 @@
           <% if user.cities.count == 0 %>
              <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>"><%= user.nickname %></option>
           <% else %>
-          <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>" data-city="<%= user.cities.first.name.downcase %>"><%= user.nickname %></option>
+          <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>" data-city="<%= user.cities.first.slug %>"><%= user.nickname %></option>
           <% end %>
           <% end %>
         </select>
@@ -29,7 +29,7 @@
           width:200px; position:absolute;">
           <option value=""></option>
           <% @cities.each do |city| %>
-          <option data-name="<%= city.name.downcase %>" value="<%= city.name %>"><%= city.name %></option>
+          <option data-name="<%= city.slug %>" value="<%= city.name %>"><%= city.name %></option>
           <% end %>
         </select>
       </div>

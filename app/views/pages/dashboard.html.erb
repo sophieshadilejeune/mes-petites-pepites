@@ -5,7 +5,7 @@
           width:60%; position:absolute;">
           <option value=""></option>
           <% @cities.each do |city| %>
-          <option data-name="<%= city.name.downcase %>" value="<%= city.name %>"><%= city.name %></option>
+          <option data-name="<%= city.slug %>" value="<%= city.name %>"><%= city.name %></option>
           <% end %>
         </select>
 </div>
