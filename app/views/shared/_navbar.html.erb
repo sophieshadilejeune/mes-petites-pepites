@@ -6,6 +6,8 @@
     <% if user_signed_in? %>
   <div class="nav-item active" data-id="<%= current_user.id %>" id="user-id">
   Hi <%= current_user.nickname %></div>
+  <% else %>
+  <div data-id="null" id="user-id"></div>
 <% end %>
 
 
