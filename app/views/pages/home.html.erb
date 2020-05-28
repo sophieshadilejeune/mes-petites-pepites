@@ -16,9 +16,9 @@
           <option value=""></option>
           <% @users.each do |user| %>
           <% if user.cities.count == 0 %>
-             <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>"><%= user.nickname %></option>
+             <option data-nickname="<%= user.slug %>" value="<%= user.nickname %>"><%= user.nickname %></option>
           <% else %>
-          <option data-nickname="<%= user.nickname.downcase %>" value="<%= user.nickname %>" data-city="<%= user.cities.first.slug %>"><%= user.nickname %></option>
+          <option data-nickname="<%= user.slug %>" value="<%= user.nickname %>" data-city="<%= user.cities.first.slug %>"><%= user.nickname %></option>
           <% end %>
           <% end %>
         </select>
