@@ -1,4 +1,5 @@
 require("@rails/ujs").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -19,7 +20,6 @@ import { initSelect2, addCityToUser, chooseCityDashboard, visitorPageUser,visito
 
 // hoverOnCard();
 navbarCollapse();
-initMapbox();
 initAutocomplete();
 // initHuntersList();
 initSelect2();
@@ -30,4 +30,5 @@ visitorPageCity();
 moveToAnotherCity();
 moveToAnotherCityUser();
 initShuffle();
+  initMapbox();
 
