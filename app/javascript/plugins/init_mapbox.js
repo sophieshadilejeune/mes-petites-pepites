@@ -1,6 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 // Second import is for the search bar
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 
 const mapElement = document.getElementById('map');

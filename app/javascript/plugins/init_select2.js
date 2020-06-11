@@ -26,6 +26,7 @@ const initSelect2 = () => {
 };
 
 const addCityToUser = () => {
+  if (document.querySelector("#city-select-select2")) {
     $('#city-select-select2')
     .select2( {
       placeholder: "Choose a city you want to add",
@@ -35,9 +36,11 @@ const addCityToUser = () => {
       $(".select2-results:not(:has(a))").append('<a href="/cities/new" style="padding: 6px;height: 20px;display: inline-table;" id="AddCity">Add a new City</a>');
     });
   };
+};
 
 
 const visitorPageUser = () => {
+if (document.querySelector("#user-search-home")) {
   $(document).ready(function() {
     $('#user-search-home').on('select2:select', function(e) {
       var itemUsername = e.params.data.element.dataset.nickname;
@@ -47,8 +50,11 @@ const visitorPageUser = () => {
     });
 });
 };
+};
 
 const visitorPageCity = () => {
+  if (document.querySelector("#city-search-home")) {
+
   $(document).ready(function() {
     $('#city-search-home').on('select2:select', function(e) {
       var itemCity = e.params.data.element.dataset.name;
@@ -56,8 +62,11 @@ const visitorPageCity = () => {
     });
 });
 };
+};
 
 const moveToAnotherCity = () => {
+    if (document.querySelector("#city-choose-show")) {
+
   $(document).ready(function() {
     $('#city-choose-show').on('select2:select', function(e) {
       var itemCity = e.params.data.element.dataset.name;
@@ -65,8 +74,11 @@ const moveToAnotherCity = () => {
     });
 });
 };
+};
 
 const moveToAnotherCityUser = () => {
+      if (document.querySelector("#city-choose-user-show")) {
+
   $(document).ready(function() {
     $('#city-choose-user-show').on('select2:select', function(e) {
       var itemCity = e.params.data.element.dataset.name;
@@ -78,8 +90,11 @@ const moveToAnotherCityUser = () => {
 });
   });
 };
+};
 
 const chooseCityDashboard = () => {
+        if (document.querySelector("#city-choose-dashboard")) {
+
   $(document).ready(function() {
     $('#city-choose-dashboard').on('select2:select', function(e) {
       var itemCity = e.params.data.element.dataset.name;
@@ -89,6 +104,7 @@ const chooseCityDashboard = () => {
         $(".select2-results:not(:has(a))").append('<a href="/cities/select" style="padding: 6px;height: 20px;display: inline-table;">Add a new city</a>');
 });
   });
+};
 };
 
 export { initSelect2, addCityToUser, chooseCityDashboard, visitorPageUser,visitorPageCity, moveToAnotherCity, moveToAnotherCityUser };
